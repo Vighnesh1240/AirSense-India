@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AirSense India - AI-powered AQI prediction and air quality analytics.">
+    <title>AirSense India — AQI Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<header class="nav">
+    <a class="brand" href="index.html">
+        <span class="brand-mark">A</span>
+        <span>AirSense <b>India</b></span>
+    </a>
+
+    <nav>
+        <a class="active" href="index.html">Predict</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-copy">
+            <div class="eyebrow">AI-POWERED AIR QUALITY INTELLIGENCE</div>
+            <h1>Understand the air.<br><em>Before you step outside.</em></h1>
+            <p>
+                Estimate AQI from pollutant measurements using a machine-learning
+                model trained on historical observations across Indian cities.
+            </p>
+            <div class="hero-meta">
+                <span>26 cities</span>
+                <span>2015–2020 observations</span>
+                <span>ML regression</span>
+            </div>
+        </div>
+
+        <div class="hero-orb">
+            <div class="orb-ring ring-1"></div>
+            <div class="orb-ring ring-2"></div>
+            <div class="orb-core">
+                <span>INDIA</span>
+                <strong>AQI</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="workspace">
+        <div class="panel form-panel">
+            <div class="panel-heading">
+                <div>
+                    <span class="section-label">01 / INPUT</span>
+                    <h2>Air quality snapshot</h2>
+                </div>
+                <span class="status-dot">MODEL READY</span>
+            </div>
+
+            <form id="predictionForm">
+                <div class="two-col">
+                    <label>
+                        City
+                        <select id="city" required></select>
+                    </label>
+
+                    <label>
+                        Observation date
+                        <input type="date" id="date" required>
+                    </label>
+                </div>
+
+                <div class="subheading">Particulate matter</div>
+                <div class="three-col">
+                    <label>PM2.5 <input type="number" id="PM2_5" min="0" step="any" required></label>
+                    <label>PM10 <input type="number" id="PM10" min="0" step="any" required></label>
+                    <label>CO <input type="number" id="CO" min="0" step="any" required></label>
+                </div>
+
+                <div class="subheading">Gaseous pollutants</div>
+                <div class="three-col">
+                    <label>NO <input type="number" id="NO" min="0" step="any" required></label>
+                    <label>NO₂ <input type="number" id="NO2" min="0" step="any" required></label>
+                    <label>NOx <input type="number" id="NOx" min="0" step="any" required></label>
+                    <label>NH₃ <input type="number" id="NH3" min="0" step="any" required></label>
+                    <label>SO₂ <input type="number" id="SO2" min="0" step="any" required></label>
+                    <label>O₃ <input type="number" id="O3" min="0" step="any" required></label>
+                </div>
+
+                <div class="subheading">Organic pollutants</div>
+                <div class="three-col">
+                    <label>Benzene <input type="number" id="Benzene" min="0" step="any" required></label>
+                    <label>Toluene <input type="number" id="Toluene" min="0" step="any" required></label>
+                    <label>Xylene <input type="number" id="Xylene" min="0" step="any" required></label>
+                </div>
+
+                <button class="primary-btn" type="submit">
+                    <span>Generate AQI prediction</span>
+                    <span>→</span>
+                </button>
+            </form>
+        </div>
+
+        <div class="panel result-panel" id="resultPanel">
+            <div class="panel-heading">
+                <div>
+                    <span class="section-label">02 / RESULT</span>
+                    <h2>Prediction</h2>
+                </div>
+            </div>
+
+            <div id="resultEmpty" class="empty-state">
+                <div class="empty-icon">◎</div>
+                <h3>Awaiting input</h3>
+                <p>Enter the pollutant measurements to generate an AQI assessment.</p>
+            </div>
+
+            <div id="resultContent" class="hidden">
+                <div class="aqi-score">
+                    <span>Predicted AQI</span>
+                    <strong id="aqiValue">—</strong>
+                    <div id="aqiCategory" class="category-pill">—</div>
+                </div>
+
+                <div class="risk-box">
+                    <span id="riskLabel">Risk</span>
+                    <strong id="riskValue">—</strong>
+                    <p id="riskMessage">—</p>
+                </div>
+
+                <div class="result-grid">
+                    <div>
+                        <span>Dominant measured pollutant</span>
+                        <strong id="dominantPollutant">—</strong>
+                    </div>
+                </div>
+
+                <div class="recommendations">
+                    <span>Suggested precautions</span>
+                    <ul id="recommendations"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <span>AirSense India</span>
+    <span>Machine Learning • FastAPI • Web Intelligence</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

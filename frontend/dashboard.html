@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirSense India — Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<header class="nav">
+    <a class="brand" href="index.html">
+        <span class="brand-mark">A</span>
+        <span>AirSense <b>India</b></span>
+    </a>
+
+    <nav>
+        <a href="index.html">Predict</a>
+        <a class="active" href="dashboard.html">Dashboard</a>
+    </nav>
+</header>
+
+<main class="dashboard-main">
+    <div class="dashboard-title">
+        <div>
+            <div class="eyebrow">02 / HISTORICAL INTELLIGENCE</div>
+            <h1>Air quality dashboard</h1>
+            <p>Explore the historical AQI patterns represented in the training dataset.</p>
+        </div>
+
+        <select id="trendCity" class="city-select"></select>
+    </div>
+
+    <section class="kpi-grid">
+        <div class="kpi"><span>Average AQI</span><strong id="avgAqi">—</strong></div>
+        <div class="kpi"><span>Highest AQI</span><strong id="highAqi">—</strong></div>
+        <div class="kpi"><span>Cities</span><strong id="cityCount">—</strong></div>
+        <div class="kpi"><span>Observations</span><strong id="rowCount">—</strong></div>
+    </section>
+
+    <section class="chart-grid">
+        <div class="chart-card wide">
+            <div class="chart-header">
+                <div>
+                    <span class="section-label">TREND</span>
+                    <h2 id="trendTitle">City AQI trend</h2>
+                </div>
+            </div>
+            <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-header">
+                <div>
+                    <span class="section-label">SEASONALITY</span>
+                    <h2>Monthly AQI</h2>
+                </div>
+            </div>
+            <div class="chart-wrap"><canvas id="monthlyChart"></canvas></div>
+        </div>
+    </section>
+
+    <section class="ranking-card">
+        <div class="chart-header">
+            <div>
+                <span class="section-label">CITY COMPARISON</span>
+                <h2>Average AQI by city</h2>
+            </div>
+        </div>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>City</th>
+                        <th>Average AQI</th>
+                        <th>Median AQI</th>
+                        <th>Maximum</th>
+                        <th>Observations</th>
+                    </tr>
+                </thead>
+                <tbody id="rankingBody"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <span>AirSense India</span>
+    <span>Historical AQI analytics</span>
+</footer>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

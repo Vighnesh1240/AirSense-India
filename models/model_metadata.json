@@ -1,0 +1,26 @@
+{
+    "model_name": "Gradient Boosting",
+    "target": "AQI",
+    "test_start": "2020-01-01",
+    "train_rows": 20429,
+    "test_rows": 4421,
+    "mae": 16.223732576152088,
+    "rmse": 26.145013478014217,
+    "r2": 0.9018223053059495,
+    "features": [
+        "City",
+        "Date",
+        "PM2.5",
+        "PM10",
+        "NO",
+        "NO2",
+        "NOx",
+        "NH3",
+        "CO",
+        "SO2",
+        "O3",
+        "Benzene",
+        "Toluene",
+        "Xylene"
+    ]
+}
