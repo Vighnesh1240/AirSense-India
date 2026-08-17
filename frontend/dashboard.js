@@ -1,6 +1,6 @@
 const API_BASE =
     window.AIRSENSE_API_BASE ||
-    "http://127.0.0.1:8000";
+    "https://airsense-india.onrender.com";
 
 let trendChart = null;
 let monthlyChart = null;
