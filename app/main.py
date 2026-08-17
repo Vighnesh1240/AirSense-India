@@ -93,7 +93,12 @@ def cities():
 @app.post("/predict")
 def predict(request: AQIRequest):
     try:
-        result = predict_aqi(request.model_dump())
+        payload = (
+            request.model_dump()
+            if hasattr(request, "model_dump")
+            else request.dict()
+        )
+        result = predict_aqi(payload)
         return {
             "success": True,
             "prediction": result
